@@ -1,18 +1,9 @@
-terraform {
-  required_version = ">= 1.0.0, < 2.0.0"
-
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
-    }
-  }
-}
-
+## see https://registry.terraform.io/providers/hashicorp/aws/latest/docs
 provider "aws" {
   region = "us-east-2"
 }
 
+## see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
 resource "aws_instance" "webserver" {
   ami                    = "ami-0fb653ca2d3203ac1"
   instance_type          = "t2.micro"
@@ -23,6 +14,7 @@ resource "aws_instance" "webserver" {
   }
 }
 
+## see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group
 resource "aws_security_group" "webserver" {
   name =  "${var.name_prefix}-${var.name_level}"
 
@@ -34,6 +26,7 @@ resource "aws_security_group" "webserver" {
   }
 }
 
+## see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket
 resource "aws_s3_bucket" "webserver" {
   bucket =  "${var.name_prefix}-${var.name_level}"
   tags = {
@@ -42,6 +35,7 @@ resource "aws_s3_bucket" "webserver" {
   }
 }
 
+## see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance
 resource "aws_db_instance" "webserver" {
   identifier_prefix   =  "${var.name_prefix}-${var.name_level}"
   engine              = "mysql"

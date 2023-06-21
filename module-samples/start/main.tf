@@ -1,18 +1,9 @@
-terraform {
-  required_version = ">= 1.0.0, < 2.0.0"
-
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
-    }
-  }
-}
-
+## see https://registry.terraform.io/providers/hashicorp/aws/latest/docs
 provider "aws" {
   region = "us-east-2"
 }
 
+## see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
 resource "aws_instance" "production" {
   ami                    = "ami-0fb653ca2d3203ac1"
   instance_type          = "t2.micro"
@@ -23,6 +14,7 @@ resource "aws_instance" "production" {
   }
 }
 
+## see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group
 resource "aws_security_group" "production" {
   name = "scott-tf-demo-prod"
 
@@ -34,6 +26,7 @@ resource "aws_security_group" "production" {
   }
 }
 
+## see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket
 resource "aws_s3_bucket" "production" {
   bucket = "scott-tf-kcdc-demo-proood"
 
@@ -43,6 +36,7 @@ resource "aws_s3_bucket" "production" {
   }
 }
 
+## see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance
 resource "aws_db_instance" "production" {
   identifier_prefix   = "scott-tf-demo-prod"
   engine              = "mysql"
@@ -54,6 +48,7 @@ resource "aws_db_instance" "production" {
   skip_final_snapshot = true
 }
 
+## see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/instance
 resource "aws_instance" "staging" {
   ami                    = "ami-0fb653ca2d3203ac1"
   instance_type          = "t2.micro"
@@ -64,6 +59,7 @@ resource "aws_instance" "staging" {
   }
 }
 
+## see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/security_group
 resource "aws_security_group" "staging" {
   name = "scott-tf-demo-staging"
 
@@ -75,6 +71,7 @@ resource "aws_security_group" "staging" {
   }
 }
 
+## see https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket
 resource "aws_s3_bucket" "staging" {
   bucket = "scott-tf-kcdc-demo-staging"
 

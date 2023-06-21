@@ -1,6 +1,8 @@
 # ---------------------------------------------------------------------------------------------------------------------
 # REQUIRED PARAMETERS
+# You must provide a value for each of these parameters.
 # ---------------------------------------------------------------------------------------------------------------------
+
 
 variable "name_level" {
     description = "Level of server resource is with. ie, prod, dev, stage, etc"
@@ -34,7 +36,9 @@ variable "db_name" {
 
 # ---------------------------------------------------------------------------------------------------------------------
 # OPTIONAL PARAMETERS
+# These parameters have reasonable defaults.
 # ---------------------------------------------------------------------------------------------------------------------
+
 variable "name_prefix" {
     description = "Prefix to identify resources in AWS"
     type = string

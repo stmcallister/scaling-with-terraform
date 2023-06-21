@@ -1,14 +1,4 @@
-terraform {
-  required_version = ">= 1.0.0, < 2.0.0"
-
-  required_providers {
-    aws = {
-      source  = "hashicorp/aws"
-      version = "~> 5.0"
-    }
-  }
-}
-
+## see https://registry.terraform.io/providers/hashicorp/aws/latest/docs
 provider "aws" {
   region = "us-east-2"
 }
@@ -16,6 +6,8 @@ provider "aws" {
 locals {
     user_names = ["ned","maud","rod","todd"]
 }
+
+## https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/iam_user
 resource "aws_iam_user" "flanders" {
   for_each = toset(local.user_names)
   name     = each.value
