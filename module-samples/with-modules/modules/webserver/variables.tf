@@ -2,8 +2,6 @@
 # REQUIRED PARAMETERS
 # You must provide a value for each of these parameters.
 # ---------------------------------------------------------------------------------------------------------------------
-
-
 variable "name_level" {
     description = "Level of server resource is with. ie, prod, dev, stage, etc"
     type = string
@@ -15,7 +13,7 @@ variable "s3_bucket_tag_name" {
 }
 
 variable "s3_bucket_tag_level" {
-    description = "Level of S3 bucket tag"
+    description = "Level of S3 bucket tag. ie, Prod, Dev, Stage, etc."
     type = string
 }
 
